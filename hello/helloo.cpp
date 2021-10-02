@@ -1,59 +1,87 @@
 #include<iostream>
 using namespace std;
-class ArrayCalculator{
+class Person
+{
+private:
+    string name;
+    int dob;
 public:
-    static int maxOfArray(int arr[],int n){
-        int max = arr[0];
-        for (int i = 0; i < n; i++)
-        {
-            if(arr[i] > max){
-                max = arr[i];
-            }
-        }
-        return max;
+    Person(string name,int dob){
+        this->name=name;
+        this->dob=dob;
     }
-    static double maxOfArray(double arr[],int n)
+    string getName(){
+        return name;
+    }
+    void setName(string name){
+        this->name=name;
+    }
+    int getDob()
     {
-        double max = arr[0];
-        for (int i = 0; i < n; i++)
-        {
-            if(arr[i] > max){
-                max = arr[i];
-            }
-        }
-        return max;
+        return dob;
     }
-    static int minOfArray(int arr[],int n){
-        int min = arr[0];
-        for (int i = 0; i < n; i++)
-        {
-            if(arr[i] < min){
-                min = arr[i];
-            }
-        }
-        return min;
-        
+    void setDob(int dob)
+    {
+        this->dob=dob;
     }
-    static double minOfArray(double arr[],int n){
-        double min = arr[0];
-        for (int  i = 0; i < n; i++)
-        {
-            if(arr[i] < min){
-                min = arr[i];
-            }
-        }
-        return min;
+};
+
+class NguoiIU:public Person{
+private:
+    string tinh_cach;
+    int vong_1;
+    int vong_2;
+    int vong_3;
+public:
+    NguoiIU(string name,int dob,string tinh_cach,int vong_1,int vong_2,int vong_3):Person(name,dob){
+        this->tinh_cach=tinh_cach;
+        this->vong_1=vong_1;
+        this->vong_2=vong_2;
+        this->vong_3=vong_3;
+    }
+    void setTinh_cach(string tinh_cach)
+    {
+        this->tinh_cach=tinh_cach;
+    }
+    void setVong_1(int vong_1){
+        this->vong_1=vong_1;
+    }
+    void setVong_2(int vong_2){
+        this->vong_2=vong_2;
+    }
+    void setVong_3(int vong_3)
+    {
+        this->vong_3=vong_3;
+    }
+    string getTinh_cach()
+    {
+        return tinh_cach;
+    }
+    int getVong_1()
+    {
+        return vong_1;
+    }
+    int getVong_2()
+    {
+        return vong_2;
+    }
+    int getVong_3()
+    {
+        return vong_3;
+    }
+    void display()
+    {
+        cout << "Name girlFriend: " << getName() << endl;
+        cout << "Date of birth: " << getDob() << endl;
+        cout << "Tinh cach cua Nguoi iu: " << getTinh_cach() << endl;
+        cout << "Vong 1: " << getVong_1() << endl;
+        cout << "Vong 2: " << getVong_2() << endl;
+        cout << "Vong 3: " <<  getVong_3() << endl;
     }
 };
 int main()
 {
-	int arr1[] = { 3, 4, 2 };
-	double arr2[] = { 1.3, 4.2, 6.7 };
-
-	cout << ArrayCalculator::minOfArray(arr1, sizeof(arr1) / sizeof(int)) << endl;
-	cout << ArrayCalculator::minOfArray(arr2, sizeof(arr2) / sizeof(double)) << endl;
-	cout << ArrayCalculator::maxOfArray(arr1, sizeof(arr1) / sizeof(int)) << endl;
-	cout << ArrayCalculator::maxOfArray(arr2, sizeof(arr2) / sizeof(double)) << endl;
-	return 0;
+    NguoiIU s("Bao",2003,"Dang yeu",90,60,90);
+    s.display();
+    return 0;
 }
-

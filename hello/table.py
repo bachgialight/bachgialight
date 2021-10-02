@@ -1,0 +1,1 @@
+print("ĐỊt con mẹ hài vcl")

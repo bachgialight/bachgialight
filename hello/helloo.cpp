@@ -91,13 +91,12 @@ public:
     }
     
 };
-int main()
+int main()  
 {
     Teacher s("Thao",26,"Soc Trang",500);
     s.display();
     Student s1("Tinh",19,"Soc Trang",10);
     s1.display();
-    
     return 0;
 }
 

@@ -1,102 +1,65 @@
 #include<iostream>
 using namespace std;
-class Person
+class Emphoyee
 {
 private:
     string name;
-    int age;
-    string address;
+    int salary;
 public:
-    Person(string name,int age,string address)
+    Emphoyee(string name,int salary)
     {
         this->name=name;
-        this->age=age;
-        this->address=address;
+        this->salary=salary;
     }
     string getName()
     {
         return name;
     }
-    int getAge()
-    {
-        return age;
-    }
-    string getAddress()
-    {
-        return address;
-    }
-    void setName(string name)
-    {
-        this->name=name;
-    }
-    void setAge(int age)
-    {
-        this->age=age;
-    }
-    void setAddress(string address)
-    {
-        this->address=address;
-    }
-    void display()
-    {
-        cout << "Name: " << getName() << endl;
-        cout << "Age: " << getAge() << endl;
-        cout << "Address: " << getAddress() << endl;
-    }
-};
-class Teacher:public Person
-{
-private:
-    int salary;
-public:
-    Teacher(string name,int age,string address,int salary):Person(name,age,address){
-        this->salary=salary;
-    }
     int getSalary()
     {
         return salary;
     }
-    void setSalary(int salary)
+    void setNane(string name)
     {
-        this->salary=salary;
+        this->name = name;
+    }
+    void setSalary()
+    {
+        this->salary= salary;
     }
     void display()
     {
-        cout << "_____________Teacher_____________" <<endl;
-        Person::display();
-        cout << "Salary: " << getSalary() <<" VND mot dem"<< endl;
+        cout << "Name: " << getName() << endl;
+        cout << "Salary: "<< getSalary() << endl;
     }
 };
-class Student:public Person
-{
+class Manager:public Emphoyee{
 private:
-    int gpa;
+    int bonus;
 public:
-    Student(string name,int age,string address,int gpa):Person(name,age,address){
-        this->gpa=gpa;
-    }
-    int getGpa()
+    Manager(string name,int salary,int bonus) : Emphoyee(name,salary)
     {
-        return gpa;
+        this->bonus=bonus;
     }
-    void setGpa(int gpa)
+    int getBonus()
     {
-        this->gpa=gpa;
+        return bonus;
+    }
+    void setBonus(int bonus)
+    {
+        this->bonus=bonus;
     }
     void display()
     {
-        cout << "_____________Student_____________" <<endl;
-        Person::display();
-        cout << "GPA: " << getGpa() << endl;
+        Emphoyee::display();
+        cout << "Bunos: " << getBonus() << endl;
+        cout << "Salary sum: " << getSalary() + getBonus() <<endl;
+        
     }
-    
 };
-int main()  
+int main()
 {
-    Teacher s("Thao",26,"Soc Trang",500);
+    Manager s("Tinh",1600,500);
     s.display();
-    Student s1("Tinh",19,"Soc Trang",10);
-    s1.display();
     return 0;
 }
-

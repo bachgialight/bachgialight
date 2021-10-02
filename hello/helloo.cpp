@@ -4,84 +4,100 @@ class Person
 {
 private:
     string name;
-    int dob;
+    int age;
+    string address;
 public:
-    Person(string name,int dob){
+    Person(string name,int age,string address)
+    {
         this->name=name;
-        this->dob=dob;
+        this->age=age;
+        this->address=address;
     }
-    string getName(){
+    string getName()
+    {
         return name;
     }
-    void setName(string name){
+    int getAge()
+    {
+        return age;
+    }
+    string getAddress()
+    {
+        return address;
+    }
+    void setName(string name)
+    {
         this->name=name;
     }
-    int getDob()
+    void setAge(int age)
     {
-        return dob;
+        this->age=age;
     }
-    void setDob(int dob)
+    void setAddress(string address)
     {
-        this->dob=dob;
-    }
-};
-
-class NguoiIU:public Person{
-private:
-    string tinh_cach;
-    int vong_1;
-    int vong_2;
-    int vong_3;
-public:
-    NguoiIU(string name,int dob,string tinh_cach,int vong_1,int vong_2,int vong_3):Person(name,dob){
-        this->tinh_cach=tinh_cach;
-        this->vong_1=vong_1;
-        this->vong_2=vong_2;
-        this->vong_3=vong_3;
-    }
-    void setTinh_cach(string tinh_cach)
-    {
-        this->tinh_cach=tinh_cach;
-    }
-    void setVong_1(int vong_1){
-        this->vong_1=vong_1;
-    }
-    void setVong_2(int vong_2){
-        this->vong_2=vong_2;
-    }
-    void setVong_3(int vong_3)
-    {
-        this->vong_3=vong_3;
-    }
-    string getTinh_cach()
-    {
-        return tinh_cach;
-    }
-    int getVong_1()
-    {
-        return vong_1;
-    }
-    int getVong_2()
-    {
-        return vong_2;
-    }
-    int getVong_3()
-    {
-        return vong_3;
+        this->address=address;
     }
     void display()
     {
-        cout << "Name girlFriend: " << getName() << endl;
-        cout << "Date of birth: " << getDob() << endl;
-        cout << "Tinh cach cua Nguoi iu: " << getTinh_cach() << endl;
-        cout << "Vong 1: " << getVong_1() << endl;
-        cout << "Vong 2: " << getVong_2() << endl;
-        cout << "Vong 3: " <<  getVong_3() << endl;
+        cout << "Name: " << getName() << endl;
+        cout << "Age: " << getAge() << endl;
+        cout << "Address: " << getAddress() << endl;
     }
+};
+class Teacher:public Person
+{
+private:
+    int salary;
+public:
+    Teacher(string name,int age,string address,int salary):Person(name,age,address){
+        this->salary=salary;
+    }
+    int getSalary()
+    {
+        return salary;
+    }
+    void setSalary(int salary)
+    {
+        this->salary=salary;
+    }
+    void display()
+    {
+        cout << "_____________Teacher_____________" <<endl;
+        Person::display();
+        cout << "Salary: " << getSalary() <<" VND mot dem"<< endl;
+    }
+};
+class Student:public Person
+{
+private:
+    int gpa;
+public:
+    Student(string name,int age,string address,int gpa):Person(name,age,address){
+        this->gpa=gpa;
+    }
+    int getGpa()
+    {
+        return gpa;
+    }
+    void setGpa(int gpa)
+    {
+        this->gpa=gpa;
+    }
+    void display()
+    {
+        cout << "_____________Student_____________" <<endl;
+        Person::display();
+        cout << "GPA: " << getGpa() << endl;
+    }
+    
 };
 int main()
 {
-    NguoiIU s("Bao",2003,"Dang yeu",90,60,90);
+    Teacher s("Thao",26,"Soc Trang",500);
     s.display();
+    Student s1("Tinh",19,"Soc Trang",10);
+    s1.display();
+    
     return 0;
 }
+
